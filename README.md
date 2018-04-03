@@ -20,3 +20,5 @@ Finding the correct logic for the JS wasn't easy, however, in the end I put all 
   - choose your character
   - choose your token
 - Alternate which player starts each round
+- Be able to customise "Best of so many games"
+
