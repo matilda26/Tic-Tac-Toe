@@ -17,6 +17,7 @@ var winningCombos = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,
 var checkTurn = function(event) {
   if (played.includes(Number(event.target.id)) === true) {
     document.getElementById(event.target.id).classList.add('nope');
+    setTimeout(function(){ document.getElementById(event.target.id).classList.remove('nope') }, 600);
   } else if (turn % 2 !== 0) {
     event.target.style.backgroundImage = 'url(images/cross.png)';
     playerOne.push(Number(event.target.id));
@@ -64,7 +65,6 @@ var resetGame = function () {
   playerOne = [];
   playerTwo = [];
   played = [];
-  turn = 0;
   gameBlock.forEach(function(block) {
     block.style.backgroundImage = 'url(images/empty.png)';
     block.classList.remove('winner');

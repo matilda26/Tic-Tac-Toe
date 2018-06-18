@@ -10,17 +10,15 @@ body {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
 /* header */
 
-header {
-  border: 1px solid black;
-}
-
 .title {
   width: 25em;
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
   display: block;
 }
 
@@ -51,9 +49,7 @@ h2 {
 
 /* main game */
 
-header, .gamboard, .blue-jump, .red-jump {
-  border: 1px solid black;
-}
+
 
 .main {
   width: 100%;
@@ -80,7 +76,7 @@ header, .gamboard, .blue-jump, .red-jump {
 
 .blue-jump, .red-jump {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   width: 25em;
   height: 37.5em;
 }
@@ -134,11 +130,11 @@ header, .gamboard, .blue-jump, .red-jump {
   -webkit-animation: tada 1s;
   animation: tada 1s;
 }
+
 .nope {
   -webkit-animation: shake 0.5s;
   animation: shake 0.5s;
 }
-
 
 @-webkit-keyframes tada {
   from {
@@ -216,21 +212,79 @@ header, .gamboard, .blue-jump, .red-jump {
   }
 }
 
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 815px) {
   body {
     font-size: 12px;
+  }
+  .main {
+    position: relative;
   }
   .blue-jump, .red-jump {
     width: 35em;
     height: 50em;
-    position: absolute;
-    bottom: 0;
+    position: absolute !important;
+    bottom: -50px;
     zoom: 0.7;
-    -moz-transform:scale(0.7);
+    -moz-transform: scale(0.7);
     transform: scale(0.7);
     -moz-transform-origin: 0 0;
     transform-origin: 0 0;
   }
-  
+  .red-jump {
+    right: -130px;
+  }
+  .gameboard {
+    width: 20em;
+    height: 20em;
+  }
+  .tally-box {
+    width: 20em;
+    height: 1.5em;
+    margin: 2em auto 1em auto;
+  }
+  .title {
+    width: 20em;
+  }
+}
+@media only screen and (max-height: 380px) {
+  .reset {
+    position: absolute;
+    top: -70px;
+    left: 20px;
+    opacity: 0.7;
+
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .middle {
+    position: absolute;
+  }
+  .gameboard {
+    width: 23em;
+    height: 23em;
+  }
+  .tally-box {
+    width: 23em;
+    height: 1.5em;
+    margin: 4em auto 1em auto;
+  }
+  .blue-jump, .red-jump {
+    bottom: -80px;
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  .middle {
+    position: absolute;
+  }
+  .gameboard {
+    width: 20em;
+    height: 20em;
+  }
+  .tally-box {
+    width: 20em;
+    height: 1.5em;
+    margin: 4em auto 1em auto;
+  }
 }
