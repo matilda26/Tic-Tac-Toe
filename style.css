@@ -221,7 +221,7 @@ h2 {
   }
   .blue-jump, .red-jump {
     width: 35em;
-    height: 50em;
+    height: 45em;
     position: absolute !important;
     bottom: -50px;
     zoom: 0.7;
