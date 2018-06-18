@@ -9,20 +9,24 @@ var blueCheer = document.getElementById('blue-cheer');
 
 var playerOne = [];
 var playerTwo = [];
+var played = [];
 var turn = 0;
 var tally = [0,0];
 var winningCombos = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
 
 var checkTurn = function(event) {
-  if (turn % 2 !== 0) {
+  if (played.includes(Number(event.target.id)) === true) {
+    document.getElementById(event.target.id).classList.add('nope');
+  } else if (turn % 2 !== 0) {
     event.target.style.backgroundImage = 'url(images/cross.png)';
     playerOne.push(Number(event.target.id));
+    played.push(Number(event.target.id));
     turn++;
     containsWinning(playerOne);
-
   } else {
     event.target.style.backgroundImage = 'url(images/circle.png)';
     playerTwo.push(Number(event.target.id));
+    played.push(Number(event.target.id));
     turn++;
     containsWinning(playerTwo);
   }
@@ -32,7 +36,6 @@ function containsWinning(player) {
     for (var i = 0; i < 3; i++) {
       if (player.includes(combo[i]) && player.includes(combo[i+1]) && player.includes(combo[i+2])) {
         if (turn % 2 !== 0) {
-          // winnerStatus.textContent = 'PLAYER ONE WINS';
           tally[0] += 1;
           playerOneScore.textContent = tally[0];
           document.getElementById(combo[i]).classList.add('winner');
@@ -50,7 +53,7 @@ function containsWinning(player) {
           document.querySelector('.red-jump').classList.add('jump-animate');
           redCheer.play();
         }
-      } else if (player.length > 4) {
+      } else if (false && player.length > 4) {
         winnerStatus.textContent = "IT'S A DRAW";
         //ADD DISAPPOINTED ANIMATION
       }
@@ -60,6 +63,7 @@ function containsWinning(player) {
 var resetGame = function () {
   playerOne = [];
   playerTwo = [];
+  played = [];
   turn = 0;
   gameBlock.forEach(function(block) {
     block.style.backgroundImage = 'url(images/empty.png)';

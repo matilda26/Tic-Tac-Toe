@@ -2,157 +2,235 @@
   box-sizing: border-box;
   font-family: 'Josefin Sans', sans-serif;
 }
+
 body {
   background-image: url(images/background.png);
   background-size: cover;
   background-repeat: no-repeat;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
 }
+
 /* header */
+
+header {
+  border: 1px solid black;
+}
+
 .title {
-  width: 500px;
-  margin: 2% auto;
+  width: 25em;
+  margin: 0 auto;
   display: block;
 }
+
 .tally-box {
-  width: 500px;
-  height: 35px;
+  width: 25em;
+  height: 2em;
   text-align: center;
-  margin: 2% auto;
+  margin: 3em auto 1em auto;
   background-color: #717272;
   color: white;
   padding: 2%;
-  display:flex;
+  display: flex;
   justify-content: space-between;
 }
+
 p {
   font-size: 1em;
   margin: 0;
   padding: 0;
 }
+
 h2 {
   font-size: 1em;
   margin: 0;
   padding: 0;
   text-align: center;
 }
+
 /* main game */
+
+header, .gamboard, .blue-jump, .red-jump {
+  border: 1px solid black;
+}
+
 .main {
   width: 100%;
-  height: 700px;
+  height: 100%;
   display: flex;
   justify-content: center;
 }
+
 .gameboard {
-  width: 400px;
-  height: 400px;
+  width: 25em;
+  height: 25em;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: space-between;
-  padding: 0;
-  margin: 0 auto;
 }
+
 .block {
   width: 30%;
   height: 30%;
   background-image: url(images/empty.png);
   background-size: cover;
 }
+
+.blue-jump, .red-jump {
+  position: absolute;
+  bottom: 0;
+  width: 25em;
+  height: 37.5em;
+}
+
 .blue-jump {
-  width: 400px;
-  height: 600px;
+  left: 0;
   background-image: url(images/BlueWin.png);
 }
+
 .red-jump {
-  width: 400px;
-  height: 600px;
+  right: 0;
   background-image: url(images/RedWin.png);
 }
+
 .middle {
-  height: 700px;
+  height: 43.75em;
 }
+
 .reset {
-  width: 120px;
-  height: 35px;
+  width: 7.5em;
+  height: 2.2em;
   margin: 5% auto;
   display: block;
   background-color: #717272;
   color: white;
   font-size: 1em;
   font-weight: bold;
+  border: none;
 }
 
+.reset:hover {
+  background-color: #505151;
+}
 
 /* ANIMATIONS */
+
 .jump-animate {
   animation: jump 1.5s steps(50) infinite;
 }
+
 @keyframes jump {
-  from {background-position: 0;}
-  to {background-position: -20000px;}
+  from {
+    background-position: 0;
+  }
+  to {
+    background-position: -20000px;
+  }
 }
+
 .winner {
   -webkit-animation: tada 1s;
   animation: tada 1s;
 }
+.nope {
+  -webkit-animation: shake 0.5s;
+  animation: shake 0.5s;
+}
+
 
 @-webkit-keyframes tada {
-from {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  10%, 20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
 }
-10%,
-20% {
-  -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-  transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-}
-30%,
-50%,
-70%,
-90% {
-  -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-  transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-}
-40%,
-60%,
-80% {
-  -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-  transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-}
-to {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-}
-}
-}
+
 @keyframes tada {
-from {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  10%, 20% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
 }
-10%,
-20% {
-  -webkit-transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-  transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+
+@-webkit-keyframes shake {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
 }
-30%,
-50%,
-70%,
-90% {
-  -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-  transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+
+@keyframes shake {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
 }
-40%,
-60%,
-80% {
-  -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-  transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-}
-to {
-  -webkit-transform: scale3d(1, 1, 1);
-  transform: scale3d(1, 1, 1);
-}
-.tada {
-  -webkit-animation-name: tada;
-  animation-name: tada;
+
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 12px;
+  }
+  .blue-jump, .red-jump {
+    width: 35em;
+    height: 50em;
+    position: absolute;
+    bottom: 0;
+    zoom: 0.7;
+    -moz-transform:scale(0.7);
+    transform: scale(0.7);
+    -moz-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+  
 }
